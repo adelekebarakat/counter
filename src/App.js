@@ -1,37 +1,20 @@
 
 import './App.css';
-import { Fragment} from 'react';
+import { Fragment, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SkillLevel from './component/skillLevel';
+import Card from './component/Card';
 
+const App = () => { 
+  const [show, setShow] = useState(false)
 
-const App = () => {
+  const handleToggleShow = () => {
+    setShow(!show)
 
-  // skillLevel is the variable name
-  // setSkillLevel is the function to set variable name
-
-  // const [skillLevel, setSkillLevel] = useState(0)
-  // const handleIncreaseVal = () => {
-  //   if (skillLevel < 10 ){
-  //     setSkillLevel(skillLevel+1)
-  //   }
-  // }
-  // const handleDecreaseVal = () => {
-  //   if (skillLevel < 10 ){
-  //     setSkillLevel(skillLevel-1)
-      
-  //   }
-  // }
-  // const handleReset = () => {
-  //   setSkillLevel(0)
-  // }
-  
+  }
   return(
     <Fragment>
-     {/* <h6>React Skill (0-10)</h6>
-    <h1>{skillLevel}</h1>
-    <button onClick={handleIncreaseVal}>Increase</button>
-    <button onClick={handleDecreaseVal}>Decrease</button>
-    <button onClick={handleReset}>Reset</button> */}
+      <SkillLevel />
     <div className='container mycontainer'>
       <div className='row'>
         <div className='col-md-3'>
@@ -52,6 +35,28 @@ const App = () => {
         </div>
       </div>
     </div>
+    <Card title="Card 1" 
+    imageUrl="Image 1" 
+    color="red"
+    bgcolor="rgb(34,193,195)"
+    toggleTitle= {handleToggleShow} showText= {show}
+    />
+
+    <Card title="Card 2" 
+    imageUrl="Image 2" 
+    color="green"
+    bgcolor="rgb(238,174,202)"
+    toggleTitle= {handleToggleShow} showText= {show}
+    />
+    
+    <Card title="Card 3" 
+    imageUrl="Image 3"
+    color ="blue"
+    bgcolor="black"
+    toggleTitle= {handleToggleShow} showText= {show}/>
+    
+
+   
     </Fragment>
    
   )
